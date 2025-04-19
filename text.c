@@ -11,7 +11,7 @@ int main(void) {
     RGFW_window* win = RGFW_createWindow("name", (RGFW_rect){500, 500, 500, 500}, RGFW_windowCenter);
 
     RSGL_init(RSGL_AREA(win->r.w, win->r.h), RGFW_getProcAddress, RSGL_GL_renderer());
-    RSGL_font* font = RSGL_loadFont("ttf/Hack-Regular.ttf");
+    RSGL_font* font = RSGL_loadFont("Hack-Regular.ttf");
     RSGL_setFont(font);
     u32 fps = 0;
     u32 frameCount = 0;
