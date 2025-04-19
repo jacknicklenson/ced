@@ -25,7 +25,7 @@ endif
 
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 	$(CC) $(OBJS) -o $@ $(LDFLAGS)
-	cp -rf ttf build
+	cp -f Hack-Regular.ttf build
 
 $(BUILD_DIR)/%.c.o: %.c
 	mkdir -p $(dir $@)
