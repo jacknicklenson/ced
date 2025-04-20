@@ -12,15 +12,15 @@ DEPS := $(OBJS:.o=.d)
 CFLAGS := -MMD -MP -Wall -Wextra -Wpedantic -pedantic -std=c99 -O0 -g
 
 ifeq ($(OS),Windows_NT)
-LDFLAGS := -lgdi32 -lm -lopengl32 -lwinmm -ggdb
+	LDFLAGS := -lgdi32 -lm -lopengl32 -lwinmm -ggdb
 else
-    UNAME_S := $(shell uname -s)
-    ifeq ($(UNAME_S),Darwin)
-LDFLAGS := -lm -framework IOKit -framework Foundation -framework AppKit -framework OpenGL -framework CoreVideo
-    endif
-    ifeq ($(UNAME_S),Linux)
-LDFLAGS := -lXrandr -lX11 -lm -lGL -ldl -lpthread
-    endif
+	UNAME_S := $(shell uname -s)
+	ifeq ($(UNAME_S),Darwin)
+		LDFLAGS := -lm -framework IOKit -framework Foundation -framework AppKit -framework OpenGL -framework CoreVideo
+	endif
+	ifeq ($(UNAME_S),Linux)
+		LDFLAGS := -lXrandr -lX11 -lm -lGL -ldl -lpthread
+    	endif
 endif
 
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
