@@ -17,7 +17,7 @@ int main(void) {
     u32 frameCount = 0;
     double startTime = RGFW_getTime(); 
 
-    for (; RGFW_window_shouldClose(win) == false;) {
+    while (RGFW_window_shouldClose(win) == false) {
         RGFW_window_checkEvent(win);
 
         if (win->event.type == RGFW_quit)
