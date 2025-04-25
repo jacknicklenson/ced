@@ -25,9 +25,6 @@ int main(void) {
   RSGL_font* font = RSGL_loadFont("Hack-Regular.ttf");
   RSGL_setFont(font);
   const RFont_area single_char_size = RFont_text_area(font, "a", 10);
-    while (RGFW_window_shouldClose(win) == false) {
-        RGFW_window_checkEvent(win);
-
   int *num = NULL;
   arrput(num, 32);
   arrput(num, 23);
@@ -37,7 +34,6 @@ int main(void) {
 
   for (size_t i = 0; i < arrlenu(num); i++)
     printf("nums[%zu]: %d\n", i, num[i]);
-
 
   while (RGFW_window_shouldClose(win) == false) {
     RGFW_window_checkEvent(win);
