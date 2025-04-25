@@ -8,17 +8,18 @@
 #define RSGL_IMPLEMENTATION
 #include "RSGL.h"
 #include "RSGL_gl.h"
+#define CC_NO_SHORT_NAMES
 #include "cc.h"
 
 int main(void) {
-  vec(int) data_point;
-  init(&data_point);
-  push(&data_point, 23);
-  push(&data_point, 10);
-  push(&data_point, 109);
-  for_each(&data_point, el)
+  cc_vec(int) data_point;
+  cc_init(&data_point);
+  cc_push(&data_point, 23);
+  cc_push(&data_point, 10);
+  cc_push(&data_point, 109);
+  cc_for_each(&data_point, el)
     printf("%d\n", *el);
-  cleanup(&data_point);
+  cc_cleanup(&data_point);
 
   RGFW_window* win = RGFW_createWindow("name", (RGFW_rect){500, 500, 500, 500}, RGFW_windowCenter | RGFW_windowFocusOnShow | RGFW_windowFocus);
   RSGL_init(RSGL_AREA(win->r.w, win->r.h), RGFW_getProcAddress, RSGL_GL_renderer());
