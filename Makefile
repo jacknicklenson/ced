@@ -9,7 +9,7 @@ SRCS := $(shell find $(SRC_DIRS) -name '*.c')
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:.o=.d)
 
-CFLAGS := -MMD -MP -Wall -Wextra -Wpedantic -pedantic -std=c99 -O0 -ggdb
+CFLAGS := -MMD -MP -Wall -Wextra -Wpedantic -pedantic -std=c11 -O0 -ggdb
 
 ifeq ($(OS),Windows_NT)
 	LDFLAGS := -lgdi32 -lm -lopengl32 -lwinmm -ggdb
@@ -20,7 +20,7 @@ else
 	endif
 	ifeq ($(UNAME_S),Linux)
 		LDFLAGS := -lXrandr -lX11 -lm -lGL -ldl -lpthread
-    	endif
+	endif
 endif
 
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
