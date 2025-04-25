@@ -21,11 +21,12 @@ int main(void) {
   cleanup(&data_point);
 
   RGFW_window* win = RGFW_createWindow("name", (RGFW_rect){500, 500, 500, 500}, RGFW_windowCenter | RGFW_windowFocusOnShow | RGFW_windowFocus);
-
   RSGL_init(RSGL_AREA(win->r.w, win->r.h), RGFW_getProcAddress, RSGL_GL_renderer());
   RSGL_font* font = RSGL_loadFont("Hack-Regular.ttf");
   RSGL_setFont(font);
   const RFont_area single_char_size = RFont_text_area(font, "a", 10);
+    while (RGFW_window_shouldClose(win) == false) {
+        RGFW_window_checkEvent(win);
 
   int *num = NULL;
   arrput(num, 32);
