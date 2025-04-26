@@ -25,7 +25,6 @@ int main(void) {
   RSGL_init(RSGL_AREA(win->r.w, win->r.h), RGFW_getProcAddress, RSGL_GL_renderer());
   RSGL_font* font = RSGL_loadFont("Hack-Regular.ttf");
   RSGL_setFont(font);
-  const RFont_area single_char_size = RFont_text_area(font, "a", 10);
   int *num = NULL;
   arrput(num, 32);
   arrput(num, 23);
@@ -46,7 +45,7 @@ int main(void) {
 
     /* RSGL_drawText("Text example\nnewlines too", RSGL_CIRCLE(200, 200, 20), RSGL_RGB(255, 0, 0)); */
     /* RSGL_drawText(RSGL_strFmt("FPS : %i\nOpenGL %s", fps, RSGL_GL_legacy ? "legacy (2-)" : "modern (3.3 +)"), RSGL_CIRCLE(0, 40, 40), RSGL_RGB(255, 0, 0)); */
-    RSGL_drawRect(RSGL_RECT(0, 0, single_char_size.w, single_char_size.h), RSGL_RGB(247, 148, 54));
+    RSGL_drawRect(RSGL_RECT(10, 10, 10, 10), RSGL_RGB(247, 148, 54));
     RSGL_draw();
     RGFW_window_swapBuffers(win);
   }
